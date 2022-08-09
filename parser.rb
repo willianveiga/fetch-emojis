@@ -4,13 +4,13 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-url = 'http://unicode.org/emoji/charts/full-emoji-list.html'
+url = 'https://unicode.org/emoji/charts/full-emoji-list.html'
 basename = File.basename(url)
 
 if File.exists?(basename)
   html = open(basename)
 else
-  html = open(url)
+  html = URI.open(url)
   open(basename, 'w') do |f|
     content = html.read
     f.puts content
