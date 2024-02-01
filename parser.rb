@@ -7,7 +7,7 @@ require 'json'
 url = 'https://unicode.org/emoji/charts/full-emoji-list.html'
 basename = File.basename(url)
 
-if File.exists?(basename)
+if File.exist?(basename)
   html = open(basename)
 else
   html = URI.open(url)
